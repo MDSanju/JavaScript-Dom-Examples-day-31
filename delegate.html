@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+</head>
+
+<body>
+    <h1>Event Delegate in JS</h1>
+
+    <ul id="items-container">
+        <li class="item">Delegate-1</li>
+        <li class="item">Delegate-2</li>
+        <li class="item">Delegate-3</li>
+        <li class="item">Delegate-4</li>
+        <li class="item">Delegate-5</li>
+        <li class="item">Delegate-6</li>
+    </ul>
+
+    <button id="new-li-add">Add Item</button>
+
+
+    <script>
+        // system no.1
+
+        // const items = document.getElementsByClassName('item');
+        // for (const item of items) {
+        //     item.addEventListener('click', function() {
+        //         document.getElementById('items-container').removeChild(item);
+        //     });
+        // }
+
+
+        // system no.2
+
+        // const items = document.getElementsByClassName('item');
+        // for (const item of items) {
+        //     item.addEventListener('click', function(event) {
+        //         event.target.parentNode.removeChild(event.target);
+        //     });
+        // }
+
+
+        // system no. 3
+        // most use case
+
+        document.getElementById('new-li-add').addEventListener('click', function() {
+            const li = document.createElement('li');
+            li.innerText = 'JS Item';
+            document.getElementById('items-container').appendChild(li);
+        });
+
+        document.getElementById('items-container').addEventListener('click', function(e) {
+            e.target.parentNode.removeChild(e.target);
+        });
+    </script>
+</body>
+
+</html>

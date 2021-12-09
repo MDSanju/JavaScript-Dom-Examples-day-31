@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Common Event handlers are used</title>
+</head>
+
+<body>
+    <p id="clicking-method"></p>
+
+    <button onclick="directPlace()">first</button>
+
+
+    <button id="most-used">second</button>
+
+    <br><br><br>
+    <!-- input button value getting -->
+    <input id="put-your-name" type="text">
+
+    <button id="submit-button">Submit</button>
+
+
+
+    <script>
+        // event handler direct function name placing
+        function directPlace() {
+            const p = document.getElementById('clicking-method');
+            p.innerText = 'set by using function';
+        }
+
+        // most use case this shortcut event handler
+        document.getElementById('most-used').addEventListener('click', function() {
+            const i = document.getElementById('clicking-method');
+            i.innerText = 'most use case shortcut';
+        });
+
+
+        // input button submission
+        document.getElementById('submit-button').addEventListener('click', function() {
+            const nameField = document.getElementById('put-your-name');
+
+            const p = document.getElementById('clicking-method')
+            p.innerText = nameField.value;
+
+            nameField.value = '';
+        });
+    </script>
+</body>
+
+</html>

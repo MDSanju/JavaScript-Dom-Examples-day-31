@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Events</title>
+</head>
+
+<body>
+    <h1>More Events. Ex. focus, blur, keyup and change event as well. How to apply, and how they act</h1>
+    <section>
+        <h3 id="delete-shortcut">Will delete after clicking!</h3>
+        <input id="delete-confirm" type="text" placeholder="type 'Delete' keyword to delete">
+        <br>
+        <br>
+        <button id="delete-btn" disabled>Delete</button>
+    </section>
+
+    <script>
+        document.getElementById('delete-btn').addEventListener('click', function() {
+            document.getElementById('delete-shortcut').style.display = 'none';
+        });
+
+
+
+        // focus
+        document.getElementById('delete-confirm').addEventListener('focus', function() {
+            document.body.style.backgroundColor = '#ea8685';
+        });
+
+
+
+        // blur
+        document.getElementById('delete-confirm').addEventListener('blur', function() {
+            document.body.style.backgroundColor = '#ffffff';
+        });
+
+
+
+        // keyup
+        document.getElementById('delete-confirm').addEventListener('keyup', function(clear) {
+            const clearByClicking = document.getElementById('delete-btn');
+            if (clear.target.value == 'Delete') {
+                clearByClicking.removeAttribute('disabled');
+            } else {
+                clearByClicking.setAttribute('disabled', true);
+            }
+        });
+
+
+        // change
+        document.getElementById('delete-confirm').addEventListener('change', function(clear) {
+            const clearByClicking = document.getElementById('delete-btn');
+            if (clear.target.value == 'Delete') {
+                clearByClicking.removeAttribute('disabled');
+            } else {
+                clearByClicking.setAttribute('disabled', true);
+            }
+        });
+
+
+
+
+
+        // there are three (3) kinds of events here about keypress. details below
+
+        // key-down
+        // document.getElementById('delete-confirm').addEventListener('keydown', function() {
+        //     document.getElementById('delete-confirm').style.backgroundColor = '#f7d794';
+        // });
+
+
+
+        // // key-press
+        // document.getElementById('delete-confirm').addEventListener('keypress', function() {
+        //     document.getElementById('delete-confirm').style.backgroundColor = '#f7d794';
+        // });
+
+
+
+
+
+        // most of the time we should use this keyup event
+        // key-up
+        // document.getElementById('delete-confirm').addEventListener('keyup', function() {
+        //     document.getElementById('delete-confirm').style.backgroundColor = '#f7d794';
+        // });
+
+
+        // we should use the change event whenever we use keyup for detecting copy paste values
+        // change event
+        // document.getElementById('delete-confirm').addEventListener('change', function() {
+        //     document.getElementById('delete-confirm').style.backgroundColor = '#f7d794';
+        // });
+    </script>
+</body>
+
+</html>
